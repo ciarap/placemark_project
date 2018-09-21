@@ -20,7 +20,7 @@
             app:theme="@style/ThemeOverlay.AppCompat.Dark.ActionBar">
 
             <android.support.v7.widget.Toolbar
-                android:id="@+id/toolbarAdd"
+                android:id="@+id/toolbarCancel"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 app:titleTextColor="@color/colorPrimary"/>
@@ -62,7 +62,7 @@
                     android:padding="8dp"
                     android:textColor="@color/colorPrimaryDark"
                     android:textSize="14sp"/>
-                
+
                 <Button
                     android:id="@+id/btnAdd"
                     android:layout_width="match_parent"
