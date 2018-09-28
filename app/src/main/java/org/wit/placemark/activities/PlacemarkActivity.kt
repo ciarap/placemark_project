@@ -32,7 +32,6 @@ class PlacemarkActivity : AppCompatActivity(), AnkoLogger {
       if (placemark.title.isNotEmpty()) {
         app.placemarks.create(placemark.copy())
         info("add Button Pressed: $placemarkTitle")
-        app.placemarks.findAll().forEach { info("add Button Pressed: ${it}")}
         setResult(AppCompatActivity.RESULT_OK)
         finish()
       }
