@@ -42,7 +42,7 @@ class PlacemarkActivity : AppCompatActivity(), AnkoLogger {
         finish()
       }
       else {
-        toast ("Please Enter a title")
+        toast (R.string.warning_enterTitle)
       }
     }
   }
