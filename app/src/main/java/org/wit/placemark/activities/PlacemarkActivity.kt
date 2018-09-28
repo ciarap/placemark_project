@@ -4,6 +4,7 @@ import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
+import android.view.View
 import kotlinx.android.synthetic.main.activity_placemark.*
 import org.jetbrains.anko.AnkoLogger
 import org.jetbrains.anko.info
@@ -30,14 +31,32 @@ class PlacemarkActivity : AppCompatActivity(), AnkoLogger {
       placemark = intent.extras.getParcelable<PlacemarkModel>("placemark_edit")
       placemarkTitle.setText(placemark.title)
       description.setText(placemark.description)
+      btnAdd.visibility = View.GONE
+    }
+    else {
+      btnSave.visibility = View.GONE
     }
 
     btnAdd.setOnClickListener() {
       placemark.title = placemarkTitle.text.toString()
       placemark.description = description.text.toString()
       if (placemark.title.isNotEmpty()) {
-        app.placemarks.create(placemark.copy())
-        info("add Button Pressed: $placemarkTitle")
+          app.placemarks.create(placemark.copy())
+          info("add Button Pressed: $placemarkTitle")
+         setResult(AppCompatActivity.RESULT_OK)
+         finish()
+      }
+      else {
+        toast (R.string.warning_enterTitle)
+      }
+    }
+
+    btnSave.setOnClickListener() {
+      placemark.title = placemarkTitle.text.toString()
+      placemark.description = description.text.toString()
+      if (placemark.title.isNotEmpty()) {
+        app.placemarks.update(placemark.copy())
+        info("save Button Pressed: $placemarkTitle")
         setResult(AppCompatActivity.RESULT_OK)
         finish()
       }
