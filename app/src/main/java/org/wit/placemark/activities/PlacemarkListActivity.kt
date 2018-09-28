@@ -13,7 +13,7 @@ import org.wit.placemark.models.PlacemarkModel
 
 class PlacemarkListActivity : AppCompatActivity(), PlacemarkListener {
   override fun onPlacemarkClick(placemark: PlacemarkModel) {
-    startActivityForResult(intentFor<PlacemarkActivity>(), 0)
+    startActivityForResult(intentFor<PlacemarkActivity>().putExtra("placemark_edit", placemark), 0)
   }
 
   lateinit var app: MainApp
